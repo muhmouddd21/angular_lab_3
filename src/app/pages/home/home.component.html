@@ -1,0 +1,28 @@
+<app-products (emitData)="Products = $event"></app-products>
+
+
+<div class="container mt-4">
+  <div class="row g-4">
+      @for(Product of Products; track Product.id){
+      <div class="col-md-4" >
+        <app-product>
+          <ng-container slot="image" >
+                <img [src]="Product.images[0]" class="card-img-top img-fluid rounded" alt="...">
+          </ng-container>
+
+          <ng-container slot="body"  >
+              <h5 class="card-title">{{Product.title}}</h5>
+              <p class="card-text">{{Product.description}}</p>
+              <a class="btn btn-danger" (click)="viewProduct(Product.id)" [id]="Product.id">See The Product</a>
+          </ng-container>
+
+        </app-product>
+      </div>
+    }
+  </div>
+</div>
+
+
+
+
+

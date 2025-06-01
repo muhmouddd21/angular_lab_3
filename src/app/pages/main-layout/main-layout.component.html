@@ -1,0 +1,27 @@
+<div>
+    <header>heeeeey jude</header>
+
+    <button [routerLink]="['home']" >Home</button>
+    <button [routerLink]="['about']" >about</button>
+    <button [routerLink]="['contact']" >conatct</button>
+    <ng-container *ngIf="!auth.islogging()">
+    <button [routerLink]="['login']" >login</button>
+    </ng-container>
+    <ng-container *ngIf="auth.islogging()">
+      <button (click)="logout()" >LogOut</button>
+    </ng-container>
+
+
+
+    <hr>
+</div>
+
+
+<router-outlet></router-outlet>
+
+<div>
+  <hr>
+  <footer>heeeeeeeey jude</footer>
+
+</div>
+
