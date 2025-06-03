@@ -12,6 +12,7 @@ export const routes: Routes = [
     {path:'about',loadComponent:()=> import("./pages/about/about.component").then((c)=>c.AboutComponent ),canActivate:[authguardGuard]},
     {path:'contact',loadComponent:()=>import("./pages/contact/contact.component").then((c)=>c.ContactComponent),canActivate:[authguardGuard]},
     {path:'login',loadComponent:()=>import("./pages/login/login.component").then((c)=>c.LoginComponent),canActivate:[preventLoginGuard]},
+    {path:'register',loadComponent:()=>import("./pages/register/register.component").then((c)=>c.RegisterComponent),canActivate:[preventLoginGuard]},
     {path:'product/:id',loadComponent: ()=> import("./pages/view-product/view-product.component").then((c)=>c.ViewProductComponent),canActivate:[authguardGuard]}
   ]},
   {path:"**",component:NotFoundComponent}

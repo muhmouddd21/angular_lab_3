@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container " style="width: 500px;">
   <form (ngSubmit)="submitForm()" #loginForm="ngForm">
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
@@ -9,7 +9,18 @@
         name="username"
         [(ngModel)]="loginData.username"
         required
+        minlength="10"
+        #userName ="ngModel"
       />
+      @if(userName.touched && userName.dirty){
+          @if(userName.getError('required')){
+            <span class="text-danger text-opacity-75">this username is required</span>
+          }
+          @if(userName.getError('minlength')){
+            <span class="text-danger text-opacity-75">this username length should be 10 characters at minimum</span>
+          }
+      }
+
     </div>
 
     <div class="mb-3">
@@ -21,7 +32,17 @@
         name="password"
         [(ngModel)]="loginData.password"
         required
+        minlength="10"
+        #password="ngModel"
       />
+        @if(password.touched && password.dirty){
+          @if(password.getError('required')){
+            <span class="text-danger text-opacity-75">this password is required</span>
+          }
+          @if(password.getError('minlength')){
+            <span class="text-danger text-opacity-75">this password length should be 10 characters at minimum</span>
+          }
+      }
     </div>
 
     <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">
